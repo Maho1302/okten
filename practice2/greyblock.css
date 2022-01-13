@@ -1,0 +1,13 @@
+div {
+    width: 600px;
+    height: 300px;
+    background-color: #808080;
+    margin-top: 100px;
+    box-shadow: #d4b78f -30px -30px 60px 15px;
+}
+p {
+    font-size: 22px;
+    box-sizing: border-box;
+    padding-left: 20px;
+    border-left: 4px solid #fe0000;
+}
