@@ -1,0 +1,30 @@
+div {
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.widgets {
+    height: 200px;
+    background-color: #2269bb;
+    font-size: 22px;
+}
+
+.wrap {
+    justify-content: space-between;
+}
+
+.types {
+    margin: 20px 0;
+    height: 180px;
+    width: 160px;
+    background-color: #16457a;
+}
+
+.contact {
+    height: 400px;
+    background-color: #2269bb;
+    font-size: 22px;
+}

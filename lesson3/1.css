@@ -1,0 +1,35 @@
+.conteiner {
+    height: 300px;
+    width: 600px;
+    box-sizing: border-box;
+    border: 3px solid #343333;
+    border-radius: 10px;
+}
+
+.same {
+    color: #545151;
+    background-color: #bdbcbc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+}
+
+.a {
+    height: 100px;
+}
+
+.wrap {
+    display: flex;
+    justify-content: space-between;
+}
+
+.b {
+    height: 175px;
+    width: 400px;
+}
+
+.c {
+    height: 175px;
+    width: 180px;
+}

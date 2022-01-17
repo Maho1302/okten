@@ -1,0 +1,41 @@
+div {
+    box-sizing: border-box;
+    border: 1px solid black;
+    margin-top: 20px;
+}
+
+.wrap {
+    display: flex;
+    margin: 0;
+    border: none;
+}
+
+#header {
+    background-color: #e6f7b0;
+    height: 100px;
+}
+
+#menu {
+    background-color: #ffb7ff;
+    width: 20%;
+    height: 420px;
+    margin-right: 20px;
+}
+
+.conteiner {
+    margin: 0;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+}
+
+.post {
+    background-color: #9fe2ff;
+    height: 200px;
+}
+
+#footer {
+    background-color: #ffffca;
+    height: 100px;
+}

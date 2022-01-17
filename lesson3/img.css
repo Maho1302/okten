@@ -1,0 +1,39 @@
+body {
+    background-color: #06bcd4;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.card {
+    display: flex;
+    height: 160px;
+    width: 500px;
+    background-color: #fefefe;
+    border-radius: 10px;
+    margin: 10px 0;
+}
+
+.wrap {
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+i {
+    font-size: 70px;
+    color: #adadad;
+}
+
+.inner-box {
+    width: 350px;
+}
+
+h3 {
+    color: #e3a105;
+}
+
+p {
+    padding-right: 20px;
+}

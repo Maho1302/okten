@@ -1,0 +1,53 @@
+body {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.same {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.circle {
+    width: 100px;
+    height: 100px;
+    background-color: white;
+    border: 1px solid #999999;
+    border-radius: 50%;
+    position: relative;
+    top: 40px;
+    left: 60px;
+
+}
+
+i {
+    font-size: 40px;
+    color: #ec9114;
+}
+
+.card {
+    width: 220px;
+    height: 300px;
+    box-sizing: border-box;
+    border: 1px solid #999999;
+}
+
+h3 {
+    text-align: center;
+    margin-top: 80px;
+}
+
+p {
+    text-align: center;
+    line-height: 26px;
+    color: #999999;
+}
+
+.button {
+    width: 140px;
+    height: 40px;
+    border: 1px solid black;
+    margin: 20px auto;
+}

@@ -1,0 +1,41 @@
+div {
+    color: white;
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.header {
+    height: 100px;
+    background-color: #0d64a7;
+    box-sizing: border-box;
+    border-bottom: 2px solid #367cb0;
+}
+
+.nav {
+    height: 90px;
+    background-color: #154a74;
+}
+
+.wrap {
+    display: flex;
+}
+
+.main {
+    height: 400px;
+    width: 60%;
+    background-color: #16a2c5;
+    box-sizing: border-box;
+    border-right: 2px solid #54a2d0;
+}
+
+.aside {
+    height: 400px;
+    width: 40%;
+    background-color: #5275ad;
+}
+
+.footer {
+    height: 90px;
+    background-color: #7bcde3
+}
