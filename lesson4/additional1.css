@@ -1,0 +1,217 @@
+.clr-blue {
+    color: #102b3e;
+}
+
+.clr-violet {
+    color: #6964e2;
+}
+
+.bg-grey {
+    background-color: #ced8e1;
+
+}
+
+.bg-blue {
+    background-color: #102b3e;
+}
+
+.bg-violet {
+    background-color: #6964e2;
+}
+
+.h1750 {
+    height: 1750px;
+}
+
+.h300 {
+    height: 300px;
+}
+
+.h400 {
+    height: 400px;
+}
+
+.h100 {
+    height: 100px;
+}
+
+.h140 {
+    height: 140px;
+}
+
+.h150 {
+    height: 150px;
+}
+
+.h200 {
+    height: 200px;
+}
+
+.h225 {
+    height: 225px;
+}
+
+.h40 {
+    height: 40px;
+}
+
+.h30 {
+    height: 30px;
+}
+
+.w30 {
+    width: 30px;
+}
+
+.w100 {
+    width: 100px;
+}
+
+.w110 {
+    width: 110px;
+}
+
+.w150 {
+    width: 150px;
+}
+
+.w200 {
+    width: 200px;
+}
+
+.w300 {
+    width: 300px;
+}
+
+.w400 {
+    width: 400px;
+}
+
+.w500 {
+    width: 500px;
+}
+
+.w600 {
+    width: 600px;
+}
+
+.w800 {
+    width: 800px;
+}
+
+.brd-rds-10 {
+    border-radius: 10px;
+}
+
+.brd-rds-15 {
+    border-radius: 15px;
+}
+
+.fn-sz-30 {
+    font-size: 30px;
+}
+
+.dsp-flx {
+    display: flex;
+}
+
+.al-it-ctr {
+    align-items: center;
+}
+
+.al-it-end {
+    align-items: flex-end;
+}
+
+.jc-spc-btw {
+    justify-content: space-between;
+}
+
+.jc-ctr {
+    justify-content: center;
+}
+
+.flx-dir-clmn {
+    flex-direction: column;
+}
+
+.mrg-lft-80 {
+    margin-left: 80px;
+}
+
+.mrg-lft-10 {
+    margin-left: 10px;
+}
+
+.mrg-lft-20 {
+    margin-left: 20px;
+}
+
+.mrg-rght-80 {
+    margin-right: 80px;
+}
+
+.mrg-rght-20 {
+    margin-right: 20px;
+}
+
+.mrg-l-r-20 {
+    margin: 0 20px;
+}
+
+.mrg-10 {
+    margin: 10px;
+}
+
+.mrg-20 {
+    margin: 20px;
+}
+
+.mrg-top-20 {
+    margin-top: 20px;
+}
+
+.mrg-top-50 {
+    margin-top: 50px;
+}
+
+.mrg-top-100 {
+    margin-top: 100px;
+}
+
+.mrg-bttm-40 {
+    margin-bottom: 40px;
+}
+
+.mrg-null {
+    margin: 0;
+}
+
+.rel {
+    position: relative;
+    top: 75px;
+}
+
+.flx-wrp-wrp {
+    flex-wrap: wrap;
+}
+
+.round {
+    border-radius: 50%;
+}
+
+.box-sz-brd-box {
+    box-sizing: border-box;
+}
+
+.pdd-top-20 {
+   padding-top: 20px;
+}
+
+.flx-dir-row-rew {
+    flex-direction: row-reverse;
+}
+
+.txt-al-ctr {
+    text-align: center;
+}
