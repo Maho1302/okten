@@ -1,0 +1,143 @@
+* {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --black-color: #000;
+}
+
+body {
+    height: 3000px;
+}
+
+.top_bar {
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.header {
+    border-bottom: 1px solid #EAEEF2;
+}
+
+.header_grid {
+    position: relative;
+}
+
+.header_logo, .nav_menu {
+    display: flex;
+    align-items: center;
+}
+
+.nav_menu {
+    column-gap: 22px;
+}
+
+.wrapper {
+    max-width: 1150px;
+    margin: 0 auto;
+}
+
+.nav_menu__item {
+    font-size: 15px;
+    line-height: 16px;
+    color: var(--black-color);
+    text-decoration: none;
+}
+
+.nav_buttons {
+    margin-left: 5px;
+    display: flex;
+    column-gap: 18px;
+}
+
+.nav_btn {
+    height: 52px;
+    box-sizing: border-box;
+    border-radius: 100px;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 25px;
+    padding: 0 25px;
+    cursor: pointer;
+    transition: box-shadow .35s;
+}
+
+.nav_btn:hover {
+    box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.75);
+}
+
+.nav_bnt__login {
+    border: 1px solid var(--black-color);
+    background: none;
+    color: var(--black-color);
+}
+
+.nav_bnt__expert {
+    background-color: var(--black-color);
+    color: #ffffff;
+    border: none;
+}
+
+.header_wrap_content {
+    padding: 100px 0 10px;
+    display: flex;
+    justify-content: space-between;
+    column-gap: 63px;
+}
+
+.header_content {
+    width: 500px;
+    min-width: 500px;
+
+}
+
+.header_content_title {
+    font-weight: bold;
+    font-size: 77px;
+    line-height: 83px;
+    color: var(--black-color);
+    margin-bottom: 27px;
+}
+
+.header_content_image {
+   flex-grow: 1;
+}
+
+.header_content_image img {
+    width: 100%;
+}
+
+.text {
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 31px;
+    color: var(--black-color);
+}
+
+.header_content >h4 {
+    margin-top: 80px;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 24px;
+    color: var(--black-color);
+}
+
+.header_button_bottom {
+    position: absolute;
+    background-color: var(--black-color);
+    color: #ffffff;
+    border-radius: 100px;
+    height: 62px;
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 25px;
+    padding: 0 30px;
+    bottom: -31px;
+    border: none;
+    cursor: pointer;
+}
