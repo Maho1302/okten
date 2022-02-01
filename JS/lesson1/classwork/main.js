@@ -38,23 +38,23 @@ let book2 = {
 // 4. Створити масив об'єктів book з наступними полями  - назва,
 // кількість сторінок, жанр, автори. Вивести кожну книгу як окремий об'єкт
 
-let books = {
-    book3  : {
+let books = [
+     {
         name: 'The Master and Margarita',
         pages: 427,
         genre: 'fantasy, farce, supernatural, romance, satire,',
         writer: 'Mikhail Bulgakov'
     },
-    book4 : {
+    {
         name: 'Monday Begins on Saturday',
         pages: 312,
         genre: 'science fiction',
         writers: 'Arkady and Boris Strugatsky'
     }
-}
+];
 
-console.log(books.book3);
-console.log(books.book4);
+console.log(books[0]);
+console.log(books[1]);
 
 // 5. Напишіть код, який вираховує площу прямокутника висотою 23см. (змінна height) та шириною 10см (змінна width).
 // Значення площі зберігати в змінній s.
