@@ -1,0 +1,9 @@
+.wrap {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.post-card {
+    width: 20%;
+}
