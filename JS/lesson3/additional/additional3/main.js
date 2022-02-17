@@ -168,13 +168,14 @@ let citiesWithId = [
 
 let usersWithCities = [];
 
-for (let i in usersWithId) {
-    for (let j in citiesWithId) {
-        if (usersWithId[i].id === citiesWithId[j].user_id) {
-            usersWithCities[i] = `{${usersWithId.id}, ${usersWithId.name}, ${usersWithId.age}, ${usersWithId.status}, address: {${citiesWithId.user_id}, ${citiesWithId.country}, ${citiesWithId.city}}`;
+for (let user of usersWithId) {
+    for (let city of citiesWithId) {
+        if (user.id === city.user_id) {
+            user.address = city;
         }
     }
-};
+}
+usersWithCities = usersWithId;
 console.log(usersWithCities);
 
 // - Взяти масив з 10 чисел або створити його. Вивести в консоль тільки ті елементи, значення яких є парними.
