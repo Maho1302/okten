@@ -63,13 +63,7 @@ class AddCompany {
     }
 }
 
-let geo = new AddGeo('-37.3159', '81.1496');
-
-let address = new AddAddress('Kulas Light', 'Apt. 556', 'Gwenborough', '92998-3874', geo);
-
-let company = new AddCompany('Romaguera-Crona', 'Multi-layered client-server neural-net', 'harness real-time e-markets');
-
-let user = new User(1, 'Leanne Graham', 'Bret', 'Sincere@april.biz', address, '1-770-736-8031 x56442', 'hildegard.org', company);
+let user = new User(1, 'Leanne Graham', 'Bret', 'Sincere@april.biz', new AddAddress('Kulas Light', 'Apt. 556', 'Gwenborough', '92998-3874', new AddGeo('-37.3159', '81.1496')), '1-770-736-8031 x56442', 'hildegard.org', new AddCompany('Romaguera-Crona', 'Multi-layered client-server neural-net', 'harness real-time e-markets'));
 
 console.log(user);
 
@@ -105,7 +99,7 @@ console.log(user);
 //
 // }
 
-class Tags  {
+class Tag  {
     constructor(titleOfTag, action, attrs) {
         this.titleOfTag = titleOfTag;
         this.action = action;
@@ -113,21 +107,34 @@ class Tags  {
     }
 };
 
-// class SetAttrs {
-//     constructor(titleOfAttr, actionOfAttr) {
-//         {this.titleOfAttr = titleOfAttr;
-//         this.actionOfAttr = actionOfAttr;}
-//         {this.titleOfAttr2 = titleOfAttr2;
-//         this.actionOfAttr2 = actionOfAttr2;}
-//     }
-// }
+class SetAttrs {
+    constructor(titleOfAttr, actionOfAttr, titleOfAttr2, actionOfAttr2) {
+        this.titleOfAttr = titleOfAttr;
+        this.actionOfAttr = actionOfAttr;
+    }
+}
 
-let attrs2 = new SetAttrs('href','Задает адрес документа, на который следует перейти');
-let attrs = new SetAttrs('href','Задает адрес документа, на который следует перейти', 'name', 'Устанавливает имя якоря внутри документа');
-
-let aTag = new Tags('\<a\>', 'Является одним из важных элементов HTML и предназначен для создания ссылок', ['href','Задает адрес документа, на который следует перейти']);
+let aTag = new Tag('<a>', 'Является одним из важных элементов HTML и предназначен для создания ссылок', [new SetAttrs('href','Задает адрес документа, на который следует перейти'), new SetAttrs('name', 'Устанавливает имя якоря внутри документа')]);
 console.log(aTag);
 
+let divTag = new Tag('<div>', 'Является блочным элементом и предназначен для выделения фрагмента документа с целью изменения вида содержимого', [new SetAttrs('align', 'Задает выравнивание содержимого тега <div>.'), new SetAttrs('title', 'Добавляет всплывающую подсказку к содержимому.')]);
+console.log(divTag);
 
-// [{titleOfAttr: titleOfAttr, actionOfAttr: actionOfAttr}, {titleOfAttr: titleOfAttr, actionOfAttr: actionOfAttr}]
-// ,{name, Устанавливает имя якоря внутри документа}]?
+let h1Tag = new Tag('<h1>', 'Представляет собой наиболее важный заголовок первого уровня', [new SetAttrs('align','Определяет выравнивание заголовка.')]);
+console.log(h1Tag);
+
+let spanTag = new Tag('<span>', 'Предназначен для определения строчных элементов документа', [new SetAttrs('class','Определяет имя класса, которое позволяет связать тег со стилевым оформлением.'), new SetAttrs('id','Указывает имя стилевого идентификатора.')]);
+console.log(spanTag);
+
+let inputTag = new Tag('<input>', 'является одним из разносторонних элементов формы и позволяет создавать разные элементы интерфейса и обеспечить взаимодействие с пользователем.', [new SetAttrs('form','Связывает поле с формой по её идентификатору.'), new SetAttrs('name','Имя поля, предназначено для того, чтобы обработчик формы мог его идентифицировать.')]);
+console.log(inputTag);
+
+let formTag = new Tag('<form>', 'Устанавливает форму на веб-странице. Форма предназначена для обмена данными между пользователем и сервером.', [new SetAttrs('action','Адрес программы или документа, который обрабатывает данные формы.'), new SetAttrs('target','Имя окна или фрейма, куда обработчик будет загружать возвращаемый результат.'), new SetAttrs('name','Имя формы.')]);
+console.log(formTag);
+
+let optionTag = new Tag('<option>', 'Определяет отдельные пункты списка, создаваемого с помощью контейнера select', [new SetAttrs('label','Указание метки пункта списка.'), new SetAttrs('value','Значение пункта списка, которое будет отправлено на сервер или прочитано с помощью скриптов.')]);
+console.log(optionTag);
+
+let selectTag = new Tag('<select>', 'Позволяет создать элемент интерфейса в виде раскрывающегося списка, а также список с одним или множественным выбором.', [new SetAttrs('form','Связывает список с формой.'), new SetAttrs('name','Имя элемента для отправки на сервер или обращения через скрипты.')]);
+console.log(selectTag);
+
