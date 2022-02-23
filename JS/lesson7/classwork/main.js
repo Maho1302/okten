@@ -129,7 +129,7 @@ let prince = new Princ('Ganz', 38, 43);
 
 // За допомоги циклу знайти яка попелюшка повинна бути з принцом.
 
-let Princess = (popelushkaArray, prince) => {
+let princess = (popelushkaArray, prince) => {
     for (let item of popelushkaArray) {
         if (item.footsize === prince.findShose) {
             return `your Princess is ${item.name}`
@@ -137,7 +137,7 @@ let Princess = (popelushkaArray, prince) => {
     }
 };
 
-console.log(Princess(popelushkaArray, prince));
+console.log(princess(popelushkaArray, prince));
 
 // Додатково, знайти необхідну попелюшку за допомоги функції масиву find та відповідного колбеку
 
