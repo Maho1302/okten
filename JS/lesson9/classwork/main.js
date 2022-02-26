@@ -39,39 +39,39 @@ let simpsons = [
     },
 ];
 
-for (const simpson of simpsons) {
-    let div = document.createElement('div');
-    div.classList.add('member');
-    div.innerText = `${simpson.name} ${simpson.surname} ${simpson.age} ${simpson.info}`
-    document.body.appendChild(div);
-}
+// for (const simpson of simpsons) {
+//     let div = document.createElement('div');
+//     div.classList.add('member');
+//     div.innerText = `${simpson.name} ${simpson.surname} ${simpson.age} ${simpson.info}`
+//     document.body.appendChild(div);
+// }
 
 
 // - взяти попередній масив з сімпсонами.
 // Проітерувати його, створиши для кожного елементу масиву <div class='member'>. Для кожної властивості елементу
 // створити окремий блок, та помістити його у div.member
 
-for (const simpson of simpsons) {
-    let div = document.createElement('div');
-    div.classList.add('member');
-    let divName = document.createElement('div');
-    divName.innerText = simpson.name;
-    let divSurname = document.createElement('div');
-    divSurname.innerText = simpson.surname;
-    let divAge = document.createElement('div');
-    divAge.innerText = simpson.age;
-    let pInfo = document.createElement('p');
-    pInfo.innerText = simpson.info;
-    let img = document.createElement('img');
-    img.src = simpson.photo;
-    img.alt = `${simpson.name} ${simpson.surname}`;
-    div.appendChild(divName);
-    div.appendChild(divSurname);
-    div.appendChild(divAge);
-    div.appendChild(pInfo);
-    div.appendChild(img);
-    document.body.appendChild(div);
-};
+// for (const simpson of simpsons) {
+//     let div = document.createElement('div');
+//     div.classList.add('member');
+//     let divName = document.createElement('div');
+//     divName.innerText = simpson.name;
+//     let divSurname = document.createElement('div');
+//     divSurname.innerText = simpson.surname;
+//     let divAge = document.createElement('div');
+//     divAge.innerText = simpson.age;
+//     let pInfo = document.createElement('p');
+//     pInfo.innerText = simpson.info;
+//     let img = document.createElement('img');
+//     img.src = simpson.photo;
+//     img.alt = `${simpson.name} ${simpson.surname}`;
+//     div.appendChild(divName);
+//     div.appendChild(divSurname);
+//     div.appendChild(divAge);
+//     div.appendChild(pInfo);
+//     div.appendChild(img);
+//     document.body.appendChild(div);
+// };
 
 // - Є масив
 // Створити для кожного елементу масиву свій блок, блок розділити блоками, в яких будуть зберігатись значення окремих
@@ -147,31 +147,6 @@ let coursesArray = [
         modules: ['html', 'css', 'js', 'mysql', 'mongodb', 'react', 'angular', 'aws', 'docker', 'git', 'sass']
     }
 ];
-
-// for (const course of coursesArray) {
-//     let course = document.createElement('course');
-//     let title = document.createElement('h2');
-//     title.innerText = course.title;
-//
-//     let monthDuration = document.createElement('div');
-//     monthDuration.innerText = course.monthDuration;
-//     let hourDuration = document.createElement('div');
-//     hourDuration.innerText = course.hourDuration;
-//
-//     let modules = document.createElement('ul');
-//
-//     for (const moduleItem of course.modules) {
-//         let module = document.createElement('li');
-//         module.innerText = moduleItem;
-//         modules.appendChild(module);
-//     }
-//
-//     course.appendChild(title);
-//     course.appendChild(monthDuration);
-//     course.appendChild(hourDuration);
-//     course.appendChild(modules);
-//     document.body.appendChild(course);
-// }
 
 for (const course of coursesArray) {
     let courseElement = document.createElement('course');

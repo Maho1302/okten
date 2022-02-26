@@ -251,20 +251,18 @@ for (const item of usersList) {
     website.innerText = item.website;
     let company = document.createElement('div');
 
+    let geoElement1 = document.createElement('div');
+    geoElement1.innerText = item.address.geo.lat;
+    let geoElement2 = document.createElement('div');
+    geoElement2.innerText = item.address.geo.lng;
 
     for (const addressItem in item.address) {
         let addressElement = document.createElement('div');
         addressElement.innerText = item.address[addressItem];
-        address.appendChild(addressElement);
+            address.appendChild(addressElement);
+        addressElement.appendChild(geoElement1);
+        addressElement.appendChild(geoElement2);
     }
-    //
-    // let geoElement = document.createElement('div');
-    // for (const geoItem in item.address.geo) {
-    //     geoElement.innerText = item.address.geo[geoItem];
-    //     addressElement.appendChild(geoElement);
-    // }
-
-
 
     for (const companyItem in item.company) {
         let companyElement = document.createElement('div');
@@ -282,3 +280,4 @@ for (const item of usersList) {
     user.appendChild(company);
     document.body.appendChild(user);
 }
+
