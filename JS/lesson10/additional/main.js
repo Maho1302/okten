@@ -14,6 +14,15 @@
 // При лівому кліку миші  зробить popup (спливаючий блок) в якому буде вся інформація про блок.
 // Інформація яку потрібно вивести в popup: Назва тегу, список класів, список ід, розміри в форматі висота*ширина
 
+// var modal = $modal();
+//
+// document.addEventListener('click', function (e) {
+//     if (e.target.dataset.toggle === 'modal') {
+//         modal.setTitle(e.target.dataset.title);
+//         modal.setContent(e.target.dataset.content);
+//         modal.show();
+//     }
+// });
 // document.addEventListener('click', function (e) {
 //
 // })
@@ -90,37 +99,32 @@ function filterByCity() {
 
 // - Напишите «Карусель» – ленту изображений, которую можно листать влево-вправо нажатием на стрелочки.
 
-// let i = 1;
-// for(let li of carousel.querySelectorAll('li')) {
-//     li.style.position = 'relative';
-//     li.insertAdjacentHTML('beforeend', `<span style="position:absolute;left:0;top:0">${i}</span>`);
-//     i++;
-// }
-//
-// let width = 1170; // ширина картинки
-// let count = 1; // видимое количество изображений
-//
-// let list = carousel.querySelector('ul');
-// let listElems = carousel.querySelectorAll('li');
-//
-// let position = 0; // положение ленты прокрутки
-//
-// carousel.querySelector('.prev').onclick = function() {
-//     // сдвиг влево
-//     position += width * count;
-//     // последнее передвижение влево может быть не на 3, а на 2 или 1 элемент
-//     position = Math.min(position, 0)
-//     list.style.marginLeft = position + 'px';
-// };
-//
-// carousel.querySelector('.next').onclick = function() {
-//     // сдвиг вправо
-//     position -= width * count;
-//     // последнее передвижение вправо может быть не на 3, а на 2 или 1 элемент
-//     position = Math.max(position, -width * (listElems.length - count));
-//     list.style.marginLeft = position + 'px';
-// };
+let slideIndex = 1;
+showSlides(slideIndex);
+function plusSlides(n) {
+    showSlides(slideIndex += n);
+}
 
+function currentSlide(n) {
+    showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+    let i;
+    let slides = document.getElementsByClassName("mySlides");
+
+    if (n > slides.length) {
+        slideIndex = 1
+    }
+    if (n < 1) {
+        slideIndex = slides.length
+    }
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+
+    slides[slideIndex-1].style.display = "block";
+}
 
 
 // Завдання важке для розуміння, але дуже легке в реалізації. Тут треба буде погуглити
@@ -139,12 +143,12 @@ function filterByCity() {
 //     this.style.fontWeight='bold'
 // }
 
-// `let selection = window.getSelection();
+// let selection = window.getSelection();
 // let text = selection.toString();
 // let parent = $(selection.focusNode.parentElement);
 // let oldHtml = parent.html();
 // let newHtml = oldHtml.replace(text, "<span class='highlight'>"+text+"</span>");
-// parent.html( newHtml );`
+// parent.html( newHtml );
 // function boldText(){
 //     let target = document.getElementById("all");
 //     if( target.style.fontWeight == "bold" ) {
@@ -152,4 +156,77 @@ function filterByCity() {
 //     } else {
 //         target.style.fontWeight = "bold";
 //     }
+// }
+
+// let range = "";
+//
+// function getSelected() {
+//     let selection = window.getSelection()
+//     rande = selection.getRandeAt(0);
+// }
+
+// function myFunction() {
+//     // document.getElementById("demo").style.fontWeight = "900";
+//     var highlight = window.getSelection();
+//     this.style.fontWeight='bold'
+// }
+
+// p.onmouseup = function () {
+//     this.style.fontWeight='bold'
+// }
+// $(document).ready(function() {
+//     $('#jBold').click(function() {
+//         document.execCommand('bold');
+//     });
+// });
+
+// let p=document.createElement('p')
+// document.body.append(p)
+// p.innerText='Как то так'
+// p.onmouseup=function (){
+//     this.style.fontWeight='bold'
+// }
+
+// function getSelectionText() {
+//     this.document.selection.str.bold;
+// }
+
+// document.write(worldString.bold());
+
+// function getSelected() {
+//     let selectedText = window.getSelection().bold();
+//     // let boldText = selectedText.bold();
+// };
+
+// let str = 'Hello';
+//
+// document.write(str.bold());
+
+// function changeSelected(){
+//     if (window.getSelection() == '') {
+//         return false;
+//     }
+//     var range = window.getSelection().getRangeAt(0);
+//     var selectionContents = range.extractContents();
+//     var span = document.createElement("span");
+//     span.appendChild(selectionContents);
+//     span.setAttribute("class", "selected");
+//     span.style.backgroundColor = "yellow";
+//     span.style.color = "green";
+//     range.insertNode(span);
+// }
+
+function getSelected() {
+    let selObj = window.getSelection();
+    let selectedText = selObj.toString();
+    console.log(selObj);
+    // let last = selectedText.bold();
+}
+
+// function foo() {
+//     var selObj = window.getSelection();
+//     document.write(selObj);
+//     var selRange = selObj.getRangeAt(0);
+//     // вернёт диапазон Range
+//     document.write(selRange);
 // }

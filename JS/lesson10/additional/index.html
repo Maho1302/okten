@@ -6,14 +6,45 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <style>
-        ::selection {
-            color: red;
-            background: yellow;
-        }
-    </style>
+    <link rel="stylesheet" href="main.css">
+<!--    <style>-->
+<!--        ::selection {-->
+<!--            color: red;-->
+<!--            background: yellow;-->
+<!--        }-->
+<!--    </style>-->
 </head>
 <body>
+<div class="slideshow-container">
+    <div class="mySlides fade">
+        <div class="numbertext">1/5</div>
+        <img src="./images/1.jpg" alt="photo1" class="img_size">
+
+    </div>
+    <div class="mySlides fade">
+        <div class="numbertext">2/5</div>
+        <img src="./images/2.jpg" alt="photo2" class="img_size">
+
+    </div>
+    <div class="mySlides fade">
+        <div class="numbertext">3/5</div>
+        <img src="./images/3.jpg" alt="photo3" class="img_size">
+
+    </div>
+    <div class="mySlides fade">
+        <div class="numbertext">4/5</div>
+        <img src="./images/4.jpg" alt="photo4" class="img_size">
+
+    </div>
+    <div class="mySlides fade">
+        <div class="numbertext">5/5</div>
+        <img src="./images/5.jpg" alt="photo5" class="img_size">
+
+    </div>
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+</div>
+
 <form>
     <input type="checkbox" name="status" id="status_false" onclick="filterByStatus()">
     <label for="status_false">Відфільтрувати за статусом</label>
@@ -39,7 +70,7 @@
 
 </ul>
 
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aliquid animi, consectetur dolore hic labore
+<p id="all">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aliquid animi, consectetur dolore hic labore
     odit optio pariatur quae quasi quibusdam quidem quisquam quod repudiandae, sunt temporibus totam ut voluptas?</p>
 
 <script src="main.js"></script>
