@@ -4,69 +4,67 @@
 //     кожному елементу юзера створити кнопку, при клику на яку в окремий блок виводяться всі пости поточного юзера.
 //     Кожному елементу post створити кнопку, при клику на яку в окремий блок виводяться всі коментарі поточного поста
 
-fetch('https://jsonplaceholder.typicode.com/posts')
-    .then(response => {
-        return response.json();
-    })
-    .then(posts => {
-        let wraper = document.createElement('div');
-        wraper.classList.add('wraper');
-        for (const post of posts) {
-            let divCard = document.createElement('div');
-            divCard.classList.add('card');
-            divCard.innerHTML = `
-                        <h3>ID: ${post.id}</h3>
-                        <h4>Title: ${post.title}</h4>
-                        <h5>Body: ${post.body}</h5>
-                        `;
+let usersContainer = document.getElementsByClassName('users')[0];
 
-            let btn = document.createElement('button');
-            btn.innerText = 'User"s posts';
-            btn.onclick = (id) => {
-                fetch('https://jsonplaceholder.typicode.com/posts/' + post.id)
-                    .then(response => response.json())
+fetch('https://jsonplaceholder.typicode.com/users')
+    .then(value => value.json())
+    .then (value => {
+        for (const user of value) {
+            let userContainer = document.createElement('div');
+            userContainer.classList.add('user');
+            userContainer.innerHTML = `<h5>Id: ${user.id}</h5> <h4>name: ${user.name} ${user.username}</h4> <h5>email: ${user.email}</h5> <h5>address:</h5> <h5>street: ${user.address.street}</h5> <h5>suite: ${user.address.suite}</h5> <h5>city: ${user.address.city}</h5> <h5>zipcode: ${user.address.zipcode}</h5> <h5>geo:</h5> <h5>lat: ${user.address.geo.lat}</h5> <h5>lng: ${user.address.geo.lng}</h5> <h5>phone: ${user.phone}</h5> <h5>website: ${user.website}</h5> <h5>company:</h5> <h5>name: ${user.company.name}</h5> <h5>catchPhrase: ${user.company.catchPhrase}</h5> <h5>bs: ${user.company.bs}</h5>`;
+
+            usersContainer.appendChild(userContainer);
+
+            let postsButton = document.createElement('button');
+            postsButton.innerText = "User's posts";
+            userContainer.appendChild(postsButton);
+
+            let postsContainer = document.createElement('div');
+            postsContainer.classList.add('posts');
+            userContainer.appendChild(postsContainer);
+
+            postsButton.onclick = function () {
+                fetch(`https://jsonplaceholder.typicode.com/users/${user.id}/posts`)
+                    .then(value => value.json())
                     .then(posts => {
-                        for (const post of posts) {
+                        for (const postItem of posts) {
+                            let postContainer = document.createElement('div');
+                            postContainer.classList.add('post');
+                            postContainer.innerHTML = `<h4>userId: ${postItem.userId}</h4> <h4>id: ${postItem.id}</h4> <h4>title: ${postItem.title}</h4> <p>body: ${postItem.body}</p>`;
 
-                            if (user.id === post.id) {
-                                let divCardPosts = document.createElement('div');
-                                divCardPosts.classList.add('cardPosts');
-                                divCardPosts.innerHTML = `
-                                        <h3>ID: ${post.id}</h3>
-                                        <h4>Title: ${post.title}</h4>
-                                        <h5>Body: ${post.body}</h5>`;
-                                divCard.appendChild(divCardPosts)
+                            postsContainer.appendChild(postContainer);
+
+                            let commentButton = document.createElement('button');
+                            commentButton.innerText = "Post's comment";
+                            commentButton.classList.add('comments');
+                            postContainer.appendChild(commentButton);
+
+                            let commentsContainer = document.createElement('div');
+                            commentsContainer.classList.add('divcom');
+                            postContainer.appendChild(commentsContainer);
+
+                            commentButton.onclick = function () {
+                                fetch(`https://jsonplaceholder.typicode.com/posts/${postItem.id}/comments`)
+                                    .then(value => value.json())
+                                    .then(value => {
+                                        console.log(value);
+                                        for (const commentItem of value) {
+                                            let commentContainer = document.createElement('div');
+                                            commentContainer.classList.add('comment');
+                                            commentContainer.innerHTML = `<h4>postId: ${postItem.postId}</h4> <h4>id: ${postItem.d}</h4> <h4>name: ${postItem.name}</h4> <h4>email: ${postItem.email}</h4> <p>body: ${postItem.body}</p>`;
+                                            commentsContainer.appendChild(commentContainer);
+                                        }
+                                    });
+                                commentButton.disabled = true;
                             }
-                            btn.disabled = true;
                         }
-                    })
-            }
-            divCard.appendChild(btn);
+                        ;
 
-            // let button = document.createElement('button');
-            // button.innerText = 'Click Comments';
-            // button.onclick = (id) => {
-            //     fetch('https://jsonplaceholder.typicode.com/posts/' + post.id + '/comments')
-            //         .then(response => response.json())
-            //         .then(comments => {
-            //             for (const comment of comments) {
-            //
-            //                 if (post.id === comment.postId) {
-            //                     let divCardComments = document.createElement('div');
-            //                     divCardComments.classList.add('cardComments');
-            //                     divCardComments.innerHTML = `
-            //                             <h3>ID: ${comment.id}</h3>
-            //                             <h4>Name: ${comment.name}</h4>
-            //                             <h5>Email: ${comment.email}</h5>
-            //                             <h6>Body: ${comment.body}</h6>`;
-            //                     divCard.appendChild(divCardComments)
-            //                 }
-            //                 button.disabled = true;
-            //             }
-            //         })
-            // }
-            // divCard.appendChild(button);
-            wraper.appendChild(divCard);
-            document.body.appendChild(wraper);
-        }
+                    });
+                postsButton.disabled = true;
+            }
+            };
+
     });
+

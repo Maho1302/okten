@@ -10,9 +10,10 @@
     let favorites = JSON.parse(localStorage.getItem('favorites'));
     for (const user of favorites) {
         let userDiv = document.createElement('div');
-        userDiv.innerText = user.name;
+        userDiv.innerText = `name: ${user.name}; age: ${user.age}; status: ${user.status}`;
         document.body.append(userDiv);
     }
+    localStorage.clear();
 </script>
 </body>
 </html>

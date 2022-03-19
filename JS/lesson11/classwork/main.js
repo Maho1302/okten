@@ -16,32 +16,12 @@ let users = [
 // favorites улюблених обраних об'єктів в локальному сховищі.
 // Створити сторніку favorites.html при переході на яку потрібно вивест в документ всіх обраних на попередньому етапі.
 
-// const favoritesKey = 'favorites';
-// localStorage.setItem(favoritesKey, JSON.stringify([]));
-// const container = document.getElementById('container');
-//
-// users.forEach(user => {
-//     const userDiv = document.createElement('div');
-//     userDiv.className = 'user';
-//     const content = document.createElement('div');
-//     content.innerText = `Name: ${user.name}\nAge: ${user.age}\nStatus: ${user.status}`
-//     const btn = document.createElement('button');
-//     btn.innerText = 'Add to favorites';
-//     btn.onclick = () => {
-//         const favorites = JSON.parse(localStorage.getItem(favoritesKey));
-//         favorites.push(user);
-//         localStorage.setItem(favoritesKey, JSON.stringify(favorites));
-//         btn.disabled = true;
-//     }
-//     userDiv.append(content, btn);
-//     container.appendChild(userDiv);
-// })
-
 let usersBox = document.getElementById('users');
 let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
 for (const user of users) {
     let userDiv = document.createElement('div');
     userDiv.innerText = user.name + ' - ';
+    userDiv.classList.add('user');
     let button = document.createElement('button');
     button.innerHTML = '<strong>add to fav</strong>';
     button.onclick = function (e) {

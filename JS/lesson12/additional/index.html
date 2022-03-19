@@ -6,8 +6,48 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+        .users {
+            display: flex;
+            flex-wrap: wrap;
+            background: blanchedalmond;
+        }
+
+        .user {
+            background: azure;
+            width: 900px;
+            margin: 20px 10px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .user>button, .comments {
+            display:block;
+            position: relative;
+            margin: 10px auto;
+        }
+
+        .posts {
+            background: silver;
+        }
+
+        .post {
+            border: 1px solid blueviolet;
+            margin: 10px 0;
+        }
+
+        .divcom {
+          background: chartreuse;
+        }
+
+        .comment {
+            background: honeydew;
+            margin: 10px;
+        }
+    </style>
 </head>
 <body>
+<div class="users"></div>
 
 <script src="main.js"></script>
 </body>
