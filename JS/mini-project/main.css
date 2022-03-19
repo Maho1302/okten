@@ -1,0 +1,14 @@
+.users {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.user {
+    background-color: antiquewhite;
+    width: 200px;
+    height: 100px;
+    margin: 10px calc(25% - 100px) 10px calc(25% - 100px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
