@@ -19,6 +19,7 @@ let button = document.getElementById('button');
 
 let save = (productName, productQuantity, productPrice, productHref) => {
     let product = {
+        id: Math.random().toString(36).substr(2, 9),
         name: productName,
         quantity: productQuantity,
         price: productPrice,
@@ -30,6 +31,6 @@ let save = (productName, productQuantity, productPrice, productHref) => {
 
 button.addEventListener('click', function (e){
     e.preventDefault();
-        save(name.value, quantity.value, price.value, href.value);
+    save(name.value, quantity.value, price.value, href.value);
 });
 

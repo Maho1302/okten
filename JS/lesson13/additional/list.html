@@ -25,12 +25,20 @@
         productsDiv.appendChild(productDiv);
 
         let button = document.createElement('button');
+        button.id = `${product.id}`;
         button.innerText = 'Видалити цей товар';
         productDiv.appendChild(button);
 
-        button.onclick = () => {
-                productDiv.innerHTML = '';
-        }
+        button.addEventListener('click', function (){
+            productDiv.innerHTML = '';
+
+            for (const product of products){
+                if(button.id == product.id){
+                    const newProducts = products.filter((product) => product.id !== button.id);
+                    localStorage.setItem('products', JSON.stringify(newProducts));
+                }
+            }
+        });
     }
 
 let btn = document.createElement('button');
