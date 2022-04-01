@@ -14,18 +14,31 @@
 // При лівому кліку миші  зробить popup (спливаючий блок) в якому буде вся інформація про блок.
 // Інформація яку потрібно вивести в popup: Назва тегу, список класів, список ід, розміри в форматі висота*ширина
 
-// var modal = $modal();
+// let popupDiv = document.createElement('div');
+// document.body.appendChild(popupDiv);
+// popupDiv.classList.add('popup');
+// popupDiv.id = 'mypopup';
+//
+// let contentDiv = document.createElement('div');
+// popupDiv.appendChild(contentDiv);
+// contentDiv.classList.add('popup-content');
+//
+// let bodyDiv = document.createElement('div');
+// contentDiv.appendChild(bodyDiv);
+// bodyDiv.classList.add('popup-body');
+//
+// let popup = document.getElementById('mypopup');
 //
 // document.addEventListener('click', function (e) {
-//     if (e.target.dataset.toggle === 'modal') {
-//         modal.setTitle(e.target.dataset.title);
-//         modal.setContent(e.target.dataset.content);
-//         modal.show();
-//     }
+// popup.style.display = "block";
+// bodyDiv.innerHTML = `<h4>Tag name: ${e.target.tagName}</h4><h3>Class: ${e.target.classList}</h3><h3>Id: ${e.target.id}</h3><h3>Height: ${e.target.offsetHeight}</h3><h3>Width: ${e.target.offsetWidth}</h3>`;
 // });
-// document.addEventListener('click', function (e) {
 //
-// })
+// window.onclick = function (e) {
+//     if (e.target == popup) {
+//         popup.style.display='none';
+//     }
+// }
 
 // -- взять массив пользователей
 let usersWithAddress = [
@@ -96,6 +109,133 @@ function filterByCity() {
 // одном уровне
 
 
+// // function watchAll(startElement) {
+// //
+// //     let children = startElement.children;
+// //     for (const child of children) {
+// //         if (child != 0) {
+// //             console.log(child.tagName);
+// //         }
+// //         watchAll(child);
+// //     }
+// // }
+// //
+// // console.log(watchAll(document.body));
+//
+// let allTags = [];
+// function watchAll(startElement) {
+//
+//     let children = startElement.children;
+//     for (const child of children) {
+//             allTags.push(child.tagName);
+//         watchAll(child);
+//     }
+// }
+//
+// watchAll(document.body);
+// console.log(allTags);
+//
+// // function makeIterator(allTags){
+// //     var nextIndex = 0;
+// //     allTags;
+// //     return {
+// //         next: function(){
+// //             return nextIndex < allTags.length ?
+// //                 {value: allTags[nextIndex++], done: false} :
+// //                 {done: true};
+// //         }
+// //     }
+// // }
+//
+//
+// // allTags[Symbol.iterator] = function() {
+// //
+// //     let current = allTags[0];
+// //
+// //     // метод должен вернуть объект с методом next()
+// //     return {
+// //         next() {
+// //             if (current <= allTags.length-1) {
+// //                 return {
+// //                     done: false,
+// //                     value: current++
+// //                 };
+// //             } else {
+// //                 return {
+// //                     done: true
+// //                 };
+// //             }
+// //         }
+// //
+// //     }
+// // };
+//
+// // function makeIterator(array){
+// //     var nextIndex = 0;
+// //
+// //     return {
+// //         next: function(){
+// //             return nextIndex < array.length ?
+// //                 {value: array[nextIndex++], done: false} :
+// //                 {done: true};
+// //         }
+// //     }
+// // };
+//
+//
+//
+// let buttonGo = document.createElement('button');
+// buttonGo.innerText = 'Вперед';
+// document.body.appendChild(buttonGo);
+//
+// // for (let i = 0; i < allTags.length; i++) {
+// //     buttonGo.onclick = function () {
+// //         console.log(allTags.i);;
+// //     };
+// // }
+//
+// // buttonGo.onclick = function () {
+// // let i = 0;
+// //     i += 1;
+// //         console.log(allTags[i]);
+// //     };
+//
+// // while (confirm(){})
+//
+// // buttonGo.onclick = function () {
+// //     for (let i = 0; i < allTags.length; i++) {
+// //         let divForTag = document.createElement('div');
+// //         divForTag.innerHTML = allTags[i];
+// //         document.body.appendChild(divForTag);
+// //     }
+// // };
+//
+// // buttonGo.onclick = function () {
+// //     while(confirm ('Які елементи є на сторінці. Виводимо по одному:') {
+// //         for (let i = 0; i < allTags.length; i++) {
+// //             console.log(allTags[i]);
+// //     });
+// // };
+//
+// // buttonGo.onclick = function () {
+// //     for (let i = 0; i < allTags.length; i++) {
+// //         alert(allTags[i]);
+// //     }
+// // };
+//
+//
+// // for (let value of allTags) {
+// //     let nextIndex = 0;
+// //     buttonGo.onclick = function () {
+// //         console.log(allTags.value);;
+// //     };
+// // };
+//
+//
+// // for (const tag of allTags) {
+// //
+// // }
+//
 
 // - Напишите «Карусель» – ленту изображений, которую можно листать влево-вправо нажатием на стрелочки.
 
@@ -136,13 +276,19 @@ function showSlides(n) {
 // p.onmouseup=function (){
 //     this.style.fontWeight='bold'
 // }
-
+//
 // document.onselectionchange = function() {
 //     let selection = document.getSelection();
 //     selection.onmouseup=function (){
 //     this.style.fontWeight='bold'
 // }
-
+//
+// let madeBoldText = function() {
+//     let highlight = window.getSelection().toString();
+//     let span = '<span class="bold">'+ `${highlight}` +'</span>';
+// };
+//
+//
 // let selection = window.getSelection();
 // let text = selection.toString();
 // let parent = $(selection.focusNode.parentElement);
@@ -157,20 +303,20 @@ function showSlides(n) {
 //         target.style.fontWeight = "bold";
 //     }
 // }
-
+//
 // let range = "";
 //
 // function getSelected() {
 //     let selection = window.getSelection()
 //     rande = selection.getRandeAt(0);
 // }
-
+//
 // function myFunction() {
 //     // document.getElementById("demo").style.fontWeight = "900";
 //     var highlight = window.getSelection();
 //     this.style.fontWeight='bold'
 // }
-
+//
 // p.onmouseup = function () {
 //     this.style.fontWeight='bold'
 // }
@@ -179,29 +325,29 @@ function showSlides(n) {
 //         document.execCommand('bold');
 //     });
 // });
-
+//
 // let p=document.createElement('p')
 // document.body.append(p)
 // p.innerText='Как то так'
 // p.onmouseup=function (){
 //     this.style.fontWeight='bold'
 // }
-
+//
 // function getSelectionText() {
 //     this.document.selection.str.bold;
 // }
-
+//
 // document.write(worldString.bold());
-
+//
 // function getSelected() {
 //     let selectedText = window.getSelection().bold();
 //     // let boldText = selectedText.bold();
 // };
-
+//
 // let str = 'Hello';
 //
 // document.write(str.bold());
-
+//
 // function changeSelected(){
 //     if (window.getSelection() == '') {
 //         return false;
@@ -215,14 +361,14 @@ function showSlides(n) {
 //     span.style.color = "green";
 //     range.insertNode(span);
 // }
-
-function getSelected() {
-    let selObj = window.getSelection();
-    let selectedText = selObj.toString();
-    console.log(selObj);
-    // let last = selectedText.bold();
-}
-
+//
+// function getSelected() {
+//     let selObj = window.getSelection();
+//     let selectedText = selObj.toString();
+//     console.log(selObj);
+//     let last = selectedText.bold();
+// }
+//
 // function foo() {
 //     var selObj = window.getSelection();
 //     document.write(selObj);
@@ -230,3 +376,79 @@ function getSelected() {
 //     // вернёт диапазон Range
 //     document.write(selRange);
 // }
+//
+// function getSelectionText() {
+//     var txt = '';
+//     if (txt = window.getSelection) { // Не IE, используем метод getSelection
+//         txt = window.getSelection().toString();
+//     } else { // IE, используем объект selection
+//         txt = document.selection.createRange().text;
+//     }
+//     return txt;
+// }
+//
+//
+// iframeNode.execCommand("bold");
+//
+// let tag = select.focusNode.parentNode.execCommand("bold");
+//
+// function makeBold(){
+//     var highlight = window.getSelection();
+//
+//     var span = '<span style="font-weight:bold;">' + highlight + '</span>';
+//
+//     document.body.innerHTML = document.body.innerHTML.replace(new RegExp(highlight , 'g'), span);
+// }
+//
+// function makeBold(){
+//
+//     var span = '<span style="font-weight:bold;">' + highlight + '</span>';
+//
+//     var selected, range;
+//     if (window.getSelection) {
+//         selected= window.getSelection();
+//         if (selected.rangeCount) {
+//             range = selected.getRangeAt(0);
+//             range.deleteContents();
+//             range.insertNode(document.createTextNode(span));
+//         }
+//     } else if (document.selection && document.selection.createRange) {
+//         range = document.selection.createRange();
+//         range.text = span;
+//     }
+//
+// }
+//
+// function getSelectionHtml() {
+//     var sel, range, node;
+//     if (window.getSelection) {
+//         sel = window.getSelection();
+//         if (sel.getRangeAt && sel.rangeCount) {
+//             range = window.getSelection().getRangeAt(0);
+//
+//             var html = '<span style="font-weight:bold;">' + range + '</span>'
+//             range.deleteContents();
+//
+//             var el = document.createElement("div");
+//             el.innerHTML = html;
+//             var frag = document.createDocumentFragment(), node, lastNode;
+//             while ( (node = el.firstChild) ) {
+//                 lastNode = frag.appendChild(node);
+//             }
+//             range.insertNode(frag);
+//         }
+//     } else if (document.selection && document.selection.createRange) {
+//         range = document.selection.createRange();
+//         range.collapse(false);
+//         range.pasteHTML(html);
+//     }
+//
+// }
+//
+// let bold : boolean = documenteditor.selection.characterFormat.bold;
+// //Sets bold formatting for selected text.
+// documenteditor.selection.characterFormat.bold = true;
+//
+// documenteditor.editor.toggleBold();
+
+

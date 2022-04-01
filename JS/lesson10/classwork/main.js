@@ -32,10 +32,10 @@ button.innerText = 'Усьо в консоль';
 document.body.appendChild(button);
 
 button.addEventListener('click', function (){
-    console.log(document.forms.formOne.inputOne.value);
-    console.log(document.forms.formOne.inputTwo.value);
-    console.log(document.forms.formTwo.inputThree.value);
-    console.log(document.forms.formTwo.inputFour.value);
+    console.log(document.forms.form.inputOne.value);
+    console.log(document.forms.form.inputTwo.value);
+    console.log(document.forms.form.inputThree.value);
+    console.log(document.forms.form.inputFour.value);
 })
 
 // - Створити 3 инпута та кнопку. Один визначає кількість рядків, другий - кількість ячеєк, третій вмиіст ячеєк.
