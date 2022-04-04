@@ -1,54 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+  <meta charset="UTF-8">
+  <title>Title</title>
 </head>
 <body>
 <h3>Перелік товарів:</h3>
 
 <script>
 
-    let productsDiv = document.createElement('div');
-    productsDiv.id = 'products';
-    document.body.append(productsDiv);
+  let productsDiv = document.createElement('div');
+  productsDiv.id = 'products';
+  document.body.append(productsDiv);
 
-    let products = JSON.parse(localStorage.getItem('products'));
-    for (const product of products) {
-        let productDiv = document.createElement('div');
-        // productDiv.innerText = `name: ${product.name}; quantity: ${product.quantity}; price: ${product.price} href: <img src="${product.href} alt='Product picture'">`;
-       productDiv.innerHTML = `
+  let products = JSON.parse(localStorage.getItem('products'));
+  for (const product of products) {
+    let productDiv = document.createElement('div');
+    // productDiv.innerText = `name: ${product.name}; quantity: ${product.quantity}; price: ${product.price} href: <img src="${product.href} alt='Product picture'">`;
+    productDiv.innerHTML = `
        <h4>name: ${product.name}</h4>
        <h4>quantity: ${product.quantity}</h4>
        <h4>price: ${product.price}</h4>
        <h4>${product.href}</h4>`;
-        productsDiv.appendChild(productDiv);
+    productsDiv.appendChild(productDiv);
 
-        let button = document.createElement('button');
-        button.id = `${product.id}`;
-        button.innerText = 'Видалити цей товар';
-        productDiv.appendChild(button);
+    let button = document.createElement('button');
+    button.id = `${product.id}`;
+    button.innerText = 'Видалити цей товар';
+    productDiv.appendChild(button);
 
-        button.addEventListener('click', function (){
-            productDiv.innerHTML = '';
+    button.addEventListener('click', function (){
+      productDiv.innerHTML = '';
 
-            for (const product of products){
-                if(button.id == product.id){
-                    const newProducts = products.filter((product) => product.id !== button.id);
-                    localStorage.setItem('products', JSON.stringify(newProducts));
-                }
-            }
-        });
-    }
-
-let btn = document.createElement('button');
-    btn.innerText = 'Видалити всі товари';
-    document.body.appendChild(btn);
-    btn.addEventListener('click', function (){
-        let deleteElement = document.getElementById("products");
-        deleteElement.remove();
-        localStorage.clear();
+      // for (const product of products){
+        if(button.id == product.id){
+          const newProducts = products.filter((product) => product.id !== button.id);
+          localStorage.setItem('products', JSON.stringify(newProducts));
+        }
+      // }
     });
+  }
+
+  let btn = document.createElement('button');
+  btn.innerText = 'Видалити всі товари';
+  document.body.appendChild(btn);
+  btn.addEventListener('click', function (){
+    let deleteElement = document.getElementById("products");
+    deleteElement.remove();
+    localStorage.clear();
+  });
 </script>
 
 </body>

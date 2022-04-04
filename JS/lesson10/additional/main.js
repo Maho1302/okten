@@ -41,6 +41,62 @@
 // }
 
 // -- взять массив пользователей
+
+// - Создать три чекбокса. Каждый из них активирует фильтр для вышеуказаного массива. Фильтры могут работать как вместе
+// так и по отдельности.
+// 1й - отфильтровывает пользователей со статусом false (осталяет со статусом false)
+// 2й - оставляет старше 29 лет включительно
+// 3й - оставляет тех у кого город киев
+// Данные выводить в документ
+
+// function filterByStatus() {
+//     let checkBox = document.getElementById("status_false");
+//     if (checkBox.checked == true){
+//         let filter = usersWithAddress.filter (value => value.status === false);
+//         for (const item of filter) {
+//             let li = document.createElement('li');
+//             li.innerText = `${item.id} ${item.name} ${item.age} ${item.status} ${item.address.city} ${item.address.street} ${item.address.number}`
+//             status_result.append(li);
+//         }
+//     }
+// }
+//
+// function filterByAge() {
+//     let checkBox = document.getElementById("age_29");
+//     if (checkBox.checked == true){
+//         let filter = usersWithAddress.filter (value => value.age >=29);
+//         for (const item of filter) {
+//             let li = document.createElement('li');
+//             li.innerText = `${item.id} ${item.name} ${item.age} ${item.status} ${item.address.city} ${item.address.street} ${item.address.number}`
+//             age_result.append(li);
+//         }
+//     }
+// }
+//
+// function filterByCity() {
+//     let checkBox = document.getElementById("city_Kyiv");
+//     if (checkBox.checked == true){
+//         let filter = usersWithAddress.filter (value => value.address.city === 'Kyiv');
+//         for (const item of filter) {
+//             let li = document.createElement('li');
+//             li.innerText = `${item.id} ${item.name} ${item.age} ${item.status} ${item.address.city} ${item.address.street} ${item.address.number}`
+//             city_result.append(li);
+//         }
+//     }
+// }
+
+let ul = document.createElement('ul');
+document.body.appendChild(ul);
+ul.id = 'result';
+
+let ul1 = document.createElement('ul');
+document.body.appendChild(ul1);
+ul1.id = 'result1';
+
+let ul2 = document.createElement('ul');
+document.body.appendChild(ul2);
+ul2.id = 'result2';
+
 let usersWithAddress = [
     {id:1,name: 'vasya', age: 31, status: false, address: {city: 'Lviv', street: 'Shevchenko', number: 16}},
     {id:2,name: 'petya', age: 30, status: true, address: {city: 'Kyiv', street: 'Shevchenko', number: 1}},
@@ -55,48 +111,76 @@ let usersWithAddress = [
     {id:11,name: 'max', age: 31, status: true, address: {city: 'Ternopil', street: 'Shevchenko', number: 121}}
 ];
 
-// - Создать три чекбокса. Каждый из них активирует фильтр для вышеуказаного массива. Фильтры могут работать как вместе
-// так и по отдельности.
-// 1й - отфильтровывает пользователей со статусом false (осталяет со статусом false)
-// 2й - оставляет старше 29 лет включительно
-// 3й - оставляет тех у кого город киев
-// Данные выводить в документ
+let checkEle = document.querySelectorAll(".check");
+let resArr = usersWithAddress;
 
-function filterByStatus() {
-    let checkBox = document.getElementById("status_false");
-    if (checkBox.checked == true){
-        let filter = usersWithAddress.filter (value => value.status === false);
-        for (const item of filter) {
-            let li = document.createElement('li');
-            li.innerText = `${item.id} ${item.name} ${item.age} ${item.status} ${item.address.city} ${item.address.street} ${item.address.number}`
-            status_result.append(li);
+function filterArr() {
+    checkEle.forEach((item, index) => {
+        if (item.checked && index == 0) {
+            resArr = resArr.filter(value => value.status === false);
+            for (const user of resArr) {
+                let li = document.createElement('li');
+                li.classList.add('status0');
+                li.innerText = `${user.id} ${user.name} ${user.age} ${user.status} ${user.address.city} ${user.address.street} ${user.address.number}`
+                result.append(li);
+            }
+        } else if (item.checked && index == 1) {
+            resArr = resArr.filter(value => value.age >= 29);
+            for (const user of resArr) {
+                let li = document.createElement('li');
+                li.classList.add('status1');
+                li.innerText = `${user.id} ${user.name} ${user.age} ${user.status} ${user.address.city} ${user.address.street} ${user.address.number}`
+                result1.append(li);
+            }
         }
-    }
+    else
+        if (item.checked && index == 2) {
+            resArr = resArr.filter(value => value.address.city === 'Kyiv');
+            for (const item of resArr) {
+                let li = document.createElement('li');
+                li.classList.add('status2');
+                li.innerText = `${item.id} ${item.name} ${item.age} ${item.status} ${item.address.city} ${item.address.street} ${item.address.number}`
+                result2.append(li);
+            }
+        }
+    });
+    function removeDuplicates(ul) {
+        const map = {};
+        for (let i = 0; i < ul.children.length; i++) {
+            const child = ul.children[i];
+            if (child.innerHTML in map) child.remove();
+            else map[child.innerHTML] = true;
+        }
+    };
+    filter = document.getElementById('result');
+    removeDuplicates(filter);
+    console.log(filter);
+    function removeDuplicates(ul) {
+        const map = {};
+        for (let i = 0; i < ul.children.length; i++) {
+            const child = ul.children[i];
+            if (child.innerHTML in map) child.remove();
+            else map[child.innerHTML] = true;
+        }
+    };
+    filter = document.getElementById('result1');
+    removeDuplicates(filter);
+    console.log(filter);
+    function removeDuplicates(ul) {
+        const map = {};
+        for (let i = 0; i < ul.children.length; i++) {
+            const child = ul.children[i];
+            if (child.innerHTML in map) child.remove();
+            else map[child.innerHTML] = true;
+        }
+    };
+    filter = document.getElementById('result2');
+    removeDuplicates(filter);
+    console.log(filter);
 }
 
-function filterByAge() {
-    let checkBox = document.getElementById("age_29");
-    if (checkBox.checked == true){
-        let filter = usersWithAddress.filter (value => value.age >=29);
-        for (const item of filter) {
-            let li = document.createElement('li');
-            li.innerText = `${item.id} ${item.name} ${item.age} ${item.status} ${item.address.city} ${item.address.street} ${item.address.number}`
-            age_result.append(li);
-        }
-    }
-}
 
-function filterByCity() {
-    let checkBox = document.getElementById("city_Kyiv");
-    if (checkBox.checked == true){
-        let filter = usersWithAddress.filter (value => value.address.city === 'Kyiv');
-        for (const item of filter) {
-            let li = document.createElement('li');
-            li.innerText = `${item.id} ${item.name} ${item.age} ${item.status} ${item.address.city} ${item.address.street} ${item.address.number}`
-            city_result.append(li);
-        }
-    }
-}
+
 
 
 // *****(Прям овердоз с рекурсией) Создать функцию которая принимает какой-либо элемент DOM-структуры .Функция создает в

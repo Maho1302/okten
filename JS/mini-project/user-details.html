@@ -55,7 +55,8 @@
     let postsContainer = document.getElementsByClassName('posts')[0];
 
     let postsDetailsButton = document.getElementsByClassName('postsDetailsButton')[0];
-    userDetailsContainer.innerText = `Id: ${user.id} name: ${user.name} ${user.username} email: ${user.email} address: street: ${user.address.street} suite: ${user.address.suite} city: ${user.address.city} zipcode: ${user.address.zipcode} geo: lat: ${user.address.geo.lat} lng: ${user.address.geo.lng} phone: ${user.phone} website: ${user.website} company: name: ${user.company.name} catchPhrase: ${user.company.catchPhrase} bs: ${user.company.bs}`;
+    // userDetailsContainer.innerText = `Id: ${user.id} name: ${user.name} ${user.username} email: ${user.email} address: street: ${user.address.street} suite: ${user.address.suite} city: ${user.address.city} zipcode: ${user.address.zipcode} geo: lat: ${user.address.geo.lat} lng: ${user.address.geo.lng} phone: ${user.phone} website: ${user.website} company: name: ${user.company.name} catchPhrase: ${user.company.catchPhrase} bs: ${user.company.bs}`;
+    userDetailsContainer.innerHTML = `<h4>Id: ${user.id}</h4> <h4>name: ${user.name} ${user.username}</h4> <h5>email: ${user.email}</h5> <h5>address:</h5> <h5>street: ${user.address.street}</h5> <h5>suite: ${user.address.suite}</h5> <h5>city: ${user.address.city}</h5> <h5>zipcode: ${user.address.zipcode}/h5> <h5>geo:</h5> <h5>lat: ${user.address.geo.lat}</h5> <h5>lng: ${user.address.geo.lng}</h5> <h5>phone: ${user.phone}</h5> <h5>website: ${user.website}</h5> <h5>company:</h5> <h5>name: ${user.company.name}</h5> <h5>catchPhrase: ${user.company.catchPhrase}</h5> <h5>bs: ${user.company.bs}</h5>`
     postsDetailsButton.onclick = function () {
         fetch(`https://jsonplaceholder.typicode.com/users/${user.id}/posts`)
         .then(value => value.json())

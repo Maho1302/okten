@@ -46,29 +46,23 @@
 </div>
 
 <form>
-    <input type="checkbox" name="status" id="status_false" onclick="filterByStatus()">
+    <input type="checkbox" name="status" class="check" onclick="filterArr()" id="status_false" onclick="filterByStatus()">
     <label for="status_false">Відфільтрувати за статусом</label>
 </form>
-<ul id="status_result">
-
-</ul>
 
 <form>
-    <input type="checkbox" name="age" id="age_29" onclick="filterByAge()">
+    <input type="checkbox" name="age" class="check" onclick="filterArr()" id="age_29" onclick="filterByAge()">
     <label for="age_29">Відфільтрувати за віком</label>
 </form>
-<ul id="age_result">
-
-</ul>
 
 <form>
-    <input type="checkbox" name="city" id="city_Kyiv" onclick="filterByCity()">
+    <input type="checkbox" name="city" class="check" onclick="filterArr()" id="city_Kyiv" onclick="filterByCity()">
     <label for="city_Kyiv">Відфільтрувати за містом</label>
 </form>
 
-<ul id="city_result">
+<!--<ul id="result">-->
 
-</ul>
+<!--</ul>-->
 
 <script src="main.js"></script>
 </body>
