@@ -49,6 +49,115 @@
 // 3й - оставляет тех у кого город киев
 // Данные выводить в документ
 
+let usersWithAddress = [
+    {id:1,name: 'vasya', age: 31, status: false, address: {city: 'Lviv', street: 'Shevchenko', number: 16}},
+    {id:2,name: 'petya', age: 30, status: true, address: {city: 'Kyiv', street: 'Shevchenko', number: 1}},
+    {id:3,name: 'kolya', age: 29, status: true, address: {city: 'Lviv', street: 'Shevchenko', number: 121}},
+    {id:4,name: 'olya', age: 28, status: false, address: {city: 'Ternopil', street: 'Shevchenko', number: 90}},
+    {id:5,name: 'max', age: 30, status: true, address: {city: 'Lviv', street: 'Shevchenko', number: 115}},
+    {id:6,name: 'anya', age: 31, status: false, address: {city: 'Kyiv', street: 'Shevchenko', number: 2}},
+    {id:7,name: 'oleg', age: 28, status: false, address: {city: 'Ternopil', street: 'Shevchenko', number: 22}},
+    {id:8,name: 'andrey', age: 29, status: true, address: {city: 'Lviv', street: 'Shevchenko', number: 43}},
+    {id:9,name: 'masha', age: 30, status: true, address: {city: 'Kyiv', street: 'Shevchenko', number: 12}},
+    {id:10,name: 'olya', age: 31, status: false, address: {city: 'Lviv', street: 'Shevchenko', number: 16}},
+    {id:11,name: 'max', age: 31, status: true, address: {city: 'Ternopil', street: 'Shevchenko', number: 121}}
+];
+
+let arrayForFilters = usersWithAddress;
+let usersDiv = document.getElementById('users');
+let checkbox1 = document.getElementById('status_false');
+let checkbox2 = document.getElementById('age_29');
+let checkbox3 = document.getElementById('city_Kyiv');
+
+for (let user of arrayForFilters) {
+    let userDiv = document.createElement('div')
+    userDiv.innerText = `id: ${user.id}, name: ${user.name}, age: ${user.age}, status: ${user.status}, address: city: ${user.address.city}, street: ${user.address.street}, number: ${user.address.number}`
+    usersDiv.append(userDiv)
+}
+
+let filtersForForm = () => {
+    let arrayForFilters = usersWithAddress
+    if (checkbox1.checked) {
+        prevDiv = usersDiv.querySelectorAll('div');
+        for (let i = 0, length = prevDiv.length; i < length; i++) {
+            prevDiv[i].parentNode.removeChild(prevDiv[i]);
+        }
+        arrayForFilters = arrayForFilters.filter(value => !value.status)
+        for (let user of arrayForFilters) {
+            let userDiv = document.createElement('div')
+            userDiv.innerText = `id: ${user.id}, name: ${user.name}, age: ${user.age}, status: ${user.status}, address: city: ${user.address.city}, street: ${user.address.street}, number: ${user.address.number}`
+            usersDiv.append(userDiv)
+        }
+        if (!checkbox1.checked) {
+            prevDiv = usersDiv.querySelectorAll('div');
+            for (let i = 0, llength = prevDiv.length; i < length; i++) {
+                prevDiv[i].parentNode.removeChild(prevDiv[i]);
+            }
+
+            for (let user of arrayForFilters) {
+                let userDiv = document.createElement('div')
+                userDiv.innerText = `id: ${user.id}, name: ${user.name}, age: ${user.age}, status: ${user.status}, address: city: ${user.address.city}, street: ${user.address.street}, number: ${user.address.number}`
+                usersDiv.append(userDiv)
+            }
+        }
+    }
+    if (checkbox2.checked) {
+        prevDiv = usersDiv.querySelectorAll('div');
+        for (let i = 0, length = prevDiv.length; i < length; i++) {
+            prevDiv[i].parentNode.removeChild(prevDiv[i]);
+        }
+        arrayForFilters = arrayForFilters.filter(value => value.age > 28)
+        for (let user of arrayForFilters) {
+            let userDiv = document.createElement('div')
+            userDiv.innerText = `id: ${user.id}, name: ${user.name}, age: ${user.age}, status: ${user.status}, address: city: ${user.address.city}, street: ${user.address.street}, number: ${user.address.number}`
+            usersDiv.append(userDiv)
+        }
+    }
+    if (!checkbox2.checked) {
+        prevDiv = usersDiv.querySelectorAll('div');
+        for (let i = 0, length = prevDiv.length; i < length; i++) {
+            prevDiv[i].parentNode.removeChild(prevDiv[i]);
+        }
+
+        for (let user of arrayForFilters) {
+            let userDiv = document.createElement('div')
+            userDiv.innerText = `id: ${user.id}, name: ${user.name}, age: ${user.age}, status: ${user.status}, address: city: ${user.address.city}, street: ${user.address.street}, number: ${user.address.number}`
+            usersDiv.append(userDiv)
+        }
+    }
+
+    if (checkbox3.checked) {
+        prevDiv = usersDiv.querySelectorAll('div');
+        for (let i = 0, length = prevDiv.length; i < length; i++) {
+            prevDiv[i].parentNode.removeChild(prevDiv[i]);
+        }
+        arrayForFilters = arrayForFilters.filter(value => value.address.city === 'Kyiv')
+        for (let user of arrayForFilters) {
+            let userDiv = document.createElement('div')
+            userDiv.innerText = `id: ${user.id}, name: ${user.name}, age: ${user.age}, status: ${user.status}, address: city: ${user.address.city}, street: ${user.address.street}, number: ${user.address.number}`
+            usersDiv.append(userDiv)
+        }
+    }
+    if (!checkbox3.checked) {
+        prevDiv = usersDiv.querySelectorAll('div');
+        for (let i = 0, length = prevDiv.length; i < length; i++) {
+            prevDiv[i].parentNode.removeChild(prevDiv[i]);
+        }
+
+        for (let user of arrayForFilters) {
+            let userDiv = document.createElement('div')
+            userDiv.innerText = `id: ${user.id}, name: ${user.name}, age: ${user.age}, status: ${user.status}, address: city: ${user.address.city}, street: ${user.address.street}, number: ${user.address.number}`
+            usersDiv.append(userDiv)
+        }
+    }
+};
+
+
+
+
+
+
+
 // function filterByStatus() {
 //     let checkBox = document.getElementById("status_false");
 //     if (checkBox.checked == true){
@@ -85,99 +194,87 @@
 //     }
 // }
 
-let ul = document.createElement('ul');
-document.body.appendChild(ul);
-ul.id = 'result';
+// let ul = document.createElement('ul');
+// document.body.appendChild(ul);
+// ul.id = 'result';
+//
+// let ul1 = document.createElement('ul');
+// document.body.appendChild(ul1);
+// ul1.id = 'result1';
+//
+// let ul2 = document.createElement('ul');
+// document.body.appendChild(ul2);
+// ul2.id = 'result2';
 
-let ul1 = document.createElement('ul');
-document.body.appendChild(ul1);
-ul1.id = 'result1';
 
-let ul2 = document.createElement('ul');
-document.body.appendChild(ul2);
-ul2.id = 'result2';
 
-let usersWithAddress = [
-    {id:1,name: 'vasya', age: 31, status: false, address: {city: 'Lviv', street: 'Shevchenko', number: 16}},
-    {id:2,name: 'petya', age: 30, status: true, address: {city: 'Kyiv', street: 'Shevchenko', number: 1}},
-    {id:3,name: 'kolya', age: 29, status: true, address: {city: 'Lviv', street: 'Shevchenko', number: 121}},
-    {id:4,name: 'olya', age: 28, status: false, address: {city: 'Ternopil', street: 'Shevchenko', number: 90}},
-    {id:5,name: 'max', age: 30, status: true, address: {city: 'Lviv', street: 'Shevchenko', number: 115}},
-    {id:6,name: 'anya', age: 31, status: false, address: {city: 'Kyiv', street: 'Shevchenko', number: 2}},
-    {id:7,name: 'oleg', age: 28, status: false, address: {city: 'Ternopil', street: 'Shevchenko', number: 22}},
-    {id:8,name: 'andrey', age: 29, status: true, address: {city: 'Lviv', street: 'Shevchenko', number: 43}},
-    {id:9,name: 'masha', age: 30, status: true, address: {city: 'Kyiv', street: 'Shevchenko', number: 12}},
-    {id:10,name: 'olya', age: 31, status: false, address: {city: 'Lviv', street: 'Shevchenko', number: 16}},
-    {id:11,name: 'max', age: 31, status: true, address: {city: 'Ternopil', street: 'Shevchenko', number: 121}}
-];
-
-let checkEle = document.querySelectorAll(".check");
-let resArr = usersWithAddress;
-
-function filterArr() {
-    checkEle.forEach((item, index) => {
-        if (item.checked && index == 0) {
-            resArr = resArr.filter(value => value.status === false);
-            for (const user of resArr) {
-                let li = document.createElement('li');
-                li.classList.add('status0');
-                li.innerText = `${user.id} ${user.name} ${user.age} ${user.status} ${user.address.city} ${user.address.street} ${user.address.number}`
-                result.append(li);
-            }
-        } else if (item.checked && index == 1) {
-            resArr = resArr.filter(value => value.age >= 29);
-            for (const user of resArr) {
-                let li = document.createElement('li');
-                li.classList.add('status1');
-                li.innerText = `${user.id} ${user.name} ${user.age} ${user.status} ${user.address.city} ${user.address.street} ${user.address.number}`
-                result1.append(li);
-            }
-        }
-    else
-        if (item.checked && index == 2) {
-            resArr = resArr.filter(value => value.address.city === 'Kyiv');
-            for (const item of resArr) {
-                let li = document.createElement('li');
-                li.classList.add('status2');
-                li.innerText = `${item.id} ${item.name} ${item.age} ${item.status} ${item.address.city} ${item.address.street} ${item.address.number}`
-                result2.append(li);
-            }
-        }
-    });
-    function removeDuplicates(ul) {
-        const map = {};
-        for (let i = 0; i < ul.children.length; i++) {
-            const child = ul.children[i];
-            if (child.innerHTML in map) child.remove();
-            else map[child.innerHTML] = true;
-        }
-    };
-    filter = document.getElementById('result');
-    removeDuplicates(filter);
-    console.log(filter);
-    function removeDuplicates(ul) {
-        const map = {};
-        for (let i = 0; i < ul.children.length; i++) {
-            const child = ul.children[i];
-            if (child.innerHTML in map) child.remove();
-            else map[child.innerHTML] = true;
-        }
-    };
-    filter = document.getElementById('result1');
-    removeDuplicates(filter);
-    console.log(filter);
-    function removeDuplicates(ul) {
-        const map = {};
-        for (let i = 0; i < ul.children.length; i++) {
-            const child = ul.children[i];
-            if (child.innerHTML in map) child.remove();
-            else map[child.innerHTML] = true;
-        }
-    };
-    filter = document.getElementById('result2');
-    removeDuplicates(filter);
-    console.log(filter);
-}
+// let checkEle = document.querySelectorAll(".check");
+// let resArr = usersWithAddress;
+//
+// function filterArr() {
+//     checkEle.forEach((item, index) => {
+//         if (item.checked && index == 0) {
+//             resArr = resArr.filter(value => value.status === false);
+//             for (const user of resArr) {
+//                 let li = document.createElement('li');
+//                 li.classList.add('status0');
+//                 li.innerText = `${user.id} ${user.name} ${user.age} ${user.status} ${user.address.city} ${user.address.street} ${user.address.number}`
+//                 result.append(li);
+//             }
+//         } else if (item.checked && index == 1) {
+//             resArr = resArr.filter(value => value.age >= 29);
+//             for (const user of resArr) {
+//                 let li = document.createElement('li');
+//                 li.classList.add('status1');
+//                 li.innerText = `${user.id} ${user.name} ${user.age} ${user.status} ${user.address.city} ${user.address.street} ${user.address.number}`
+//                 result1.append(li);
+//             }
+//         }
+//     else
+//         if (item.checked && index == 2) {
+//             resArr = resArr.filter(value => value.address.city === 'Kyiv');
+//             for (const item of resArr) {
+//                 let li = document.createElement('li');
+//                 li.classList.add('status2');
+//                 li.innerText = `${item.id} ${item.name} ${item.age} ${item.status} ${item.address.city} ${item.address.street} ${item.address.number}`
+//                 result2.append(li);
+//             }
+//         }
+//     });
+//     function removeDuplicates(ul) {
+//         const map = {};
+//         for (let i = 0; i < ul.children.length; i++) {
+//             const child = ul.children[i];
+//             if (child.innerHTML in map) child.remove();
+//             else map[child.innerHTML] = true;
+//         }
+//     };
+//     filter = document.getElementById('result');
+//     removeDuplicates(filter);
+//     console.log(filter);
+//     function removeDuplicates(ul) {
+//         const map = {};
+//         for (let i = 0; i < ul.children.length; i++) {
+//             const child = ul.children[i];
+//             if (child.innerHTML in map) child.remove();
+//             else map[child.innerHTML] = true;
+//         }
+//     };
+//     filter = document.getElementById('result1');
+//     removeDuplicates(filter);
+//     console.log(filter);
+//     function removeDuplicates(ul) {
+//         const map = {};
+//         for (let i = 0; i < ul.children.length; i++) {
+//             const child = ul.children[i];
+//             if (child.innerHTML in map) child.remove();
+//             else map[child.innerHTML] = true;
+//         }
+//     };
+//     filter = document.getElementById('result2');
+//     removeDuplicates(filter);
+//     console.log(filter);
+// }
 
 
 
@@ -192,20 +289,6 @@ function filterArr() {
 // Когда все дети заканчиваются, мы выходим из данного дочернего элемента и переходим к следующему, лежащему с ним на
 // одном уровне
 
-
-// // function watchAll(startElement) {
-// //
-// //     let children = startElement.children;
-// //     for (const child of children) {
-// //         if (child != 0) {
-// //             console.log(child.tagName);
-// //         }
-// //         watchAll(child);
-// //     }
-// // }
-// //
-// // console.log(watchAll(document.body));
-//
 // let allTags = [];
 // function watchAll(startElement) {
 //
@@ -218,108 +301,55 @@ function filterArr() {
 //
 // watchAll(document.body);
 // console.log(allTags);
-//
-// // function makeIterator(allTags){
-// //     var nextIndex = 0;
-// //     allTags;
-// //     return {
-// //         next: function(){
-// //             return nextIndex < allTags.length ?
-// //                 {value: allTags[nextIndex++], done: false} :
-// //                 {done: true};
-// //         }
-// //     }
-// // }
-//
-//
-// // allTags[Symbol.iterator] = function() {
-// //
-// //     let current = allTags[0];
-// //
-// //     // метод должен вернуть объект с методом next()
-// //     return {
-// //         next() {
-// //             if (current <= allTags.length-1) {
-// //                 return {
-// //                     done: false,
-// //                     value: current++
-// //                 };
-// //             } else {
-// //                 return {
-// //                     done: true
-// //                 };
-// //             }
-// //         }
-// //
-// //     }
-// // };
-//
-// // function makeIterator(array){
-// //     var nextIndex = 0;
-// //
-// //     return {
-// //         next: function(){
-// //             return nextIndex < array.length ?
-// //                 {value: array[nextIndex++], done: false} :
-// //                 {done: true};
-// //         }
-// //     }
-// // };
-//
-//
-//
-// let buttonGo = document.createElement('button');
-// buttonGo.innerText = 'Вперед';
-// document.body.appendChild(buttonGo);
-//
-// // for (let i = 0; i < allTags.length; i++) {
-// //     buttonGo.onclick = function () {
-// //         console.log(allTags.i);;
-// //     };
-// // }
-//
-// // buttonGo.onclick = function () {
-// // let i = 0;
-// //     i += 1;
-// //         console.log(allTags[i]);
-// //     };
-//
-// // while (confirm(){})
-//
-// // buttonGo.onclick = function () {
-// //     for (let i = 0; i < allTags.length; i++) {
-// //         let divForTag = document.createElement('div');
-// //         divForTag.innerHTML = allTags[i];
-// //         document.body.appendChild(divForTag);
-// //     }
-// // };
-//
-// // buttonGo.onclick = function () {
-// //     while(confirm ('Які елементи є на сторінці. Виводимо по одному:') {
-// //         for (let i = 0; i < allTags.length; i++) {
-// //             console.log(allTags[i]);
-// //     });
-// // };
-//
-// // buttonGo.onclick = function () {
-// //     for (let i = 0; i < allTags.length; i++) {
-// //         alert(allTags[i]);
-// //     }
-// // };
-//
-//
-// // for (let value of allTags) {
-// //     let nextIndex = 0;
-// //     buttonGo.onclick = function () {
-// //         console.log(allTags.value);;
-// //     };
-// // };
-//
-//
-// // for (const tag of allTags) {
-// //
-// // }
-//
+
+let form = document.createElement('form');
+let butBack = document.createElement('button');
+let butNext = document.createElement('button');
+butBack.innerText = 'BACK';
+butNext.innerText = 'NEXT';
+document.body.append(form);
+form.append(butBack);
+form.append(butNext);
+
+let arrayOfTags = [];
+let allTags = document.getElementsByClassName('page');
+
+let counter = 0;
+let highligthTag = (array) => {
+    for (let element of array) {
+        arrayOfTags.push(element)
+        highligthTag(element.children)
+    }
+}
+highligthTag(allTags)
+butNext.addEventListener('click', e => {
+        e.preventDefault()
+        if (counter < arrayOfTags.length - 1) {
+            counter += 1
+        } else counter = 0
+
+        arrayOfTags[counter].style.background = 'red'
+        if (counter !== 0) {
+            arrayOfTags[counter - 1].style.background = 'none'
+        } else {
+            arrayOfTags[arrayOfTags.length - 1].style.background = 'none'
+        }
+    }
+)
+butBack.addEventListener('click', e => {
+        e.preventDefault()
+        if (counter > 0) {
+            --counter
+        } else counter = arrayOfTags.length - 1
+
+        arrayOfTags[counter].style.background = 'red'
+        if (counter !== arrayOfTags.length - 1) {
+            arrayOfTags[counter + 1].style.background = 'none'
+        } else {
+            arrayOfTags[0].style.background = 'none'
+        }
+    }
+)
 
 // - Напишите «Карусель» – ленту изображений, которую можно листать влево-вправо нажатием на стрелочки.
 

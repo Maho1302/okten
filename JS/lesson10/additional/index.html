@@ -14,7 +14,8 @@
 <!--        }-->
 <!--    </style>-->
 </head>
-<body>
+<body class="page">
+
 <div class="slideshow-container">
     <div class="mySlides fade">
         <div class="numbertext">1/5</div>
@@ -45,20 +46,43 @@
     <a class="next" onclick="plusSlides(1)">&#10095;</a>
 </div>
 
-<form>
-    <input type="checkbox" name="status" class="check" onclick="filterArr()" id="status_false" onclick="filterByStatus()">
-    <label for="status_false">Відфільтрувати за статусом</label>
+<div id="users"></div>
+<form id="form" onchange="filtersForForm(this.value)">
+    <input type="checkbox" id="status_false">Відфільтрувати за статусом</input>
+    <input type="checkbox" id="age_29">Відфільтрувати за віком</input>
+    <input type="checkbox" id="city_Kyiv">Відфільтрувати за містом</input>
 </form>
 
-<form>
-    <input type="checkbox" name="age" class="check" onclick="filterArr()" id="age_29" onclick="filterByAge()">
-    <label for="age_29">Відфільтрувати за віком</label>
-</form>
 
-<form>
-    <input type="checkbox" name="city" class="check" onclick="filterArr()" id="city_Kyiv" onclick="filterByCity()">
-    <label for="city_Kyiv">Відфільтрувати за містом</label>
-</form>
+
+<!--<form>-->
+<!--    <label for="status_false">Відфільтрувати за статусом-->
+<!--    <input type="checkbox" name="status" class="check" onclick="filterArr()" id="status_false" onclick="filterByStatus()">-->
+<!--    </label>-->
+
+<!--    <label for="age_29">Відфільтрувати за віком-->
+<!--    <input type="checkbox" name="age" class="check" onclick="filterArr()" id="age_29" onclick="filterByAge()">-->
+<!--    </label>-->
+
+<!--    <label for="city_Kyiv">Відфільтрувати за містом-->
+<!--    <input type="checkbox" name="city" class="check" onclick="filterArr()" id="city_Kyiv" onclick="filterByCity()">-->
+<!--    </label>-->
+<!--</form>-->
+
+<!--<form>-->
+<!--    <input type="checkbox" name="status" class="check" onclick="filterArr()" id="status_false" onclick="filterByStatus()">-->
+<!--    <label for="status_false">Відфільтрувати за статусом</label>-->
+<!--</form>-->
+
+<!--<form>-->
+<!--    <input type="checkbox" name="age" class="check" onclick="filterArr()" id="age_29" onclick="filterByAge()">-->
+<!--    <label for="age_29">Відфільтрувати за віком</label>-->
+<!--</form>-->
+
+<!--<form>-->
+<!--    <input type="checkbox" name="city" class="check" onclick="filterArr()" id="city_Kyiv" onclick="filterByCity()">-->
+<!--    <label for="city_Kyiv">Відфільтрувати за містом</label>-->
+<!--</form>-->
 
 <!--<ul id="result">-->
 
